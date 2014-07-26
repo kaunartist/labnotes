@@ -1,8 +1,8 @@
 var fortune = require('fortune');
 var options = {
-  db: 'demo_app'
+  db: 'labnotes'
 };
-var port = process.argv[2] || 1337;
+var port = Number(process.env.PORT || 1337);
 
 var app = fortune(options);
 app.resource('job', {
@@ -18,5 +18,3 @@ app.resource('job', {
   speed: Number,
   power: Number,
 }).listen(port);
-
-console.log('Listening on port ' + port + '...');
